@@ -17,8 +17,8 @@ ourRequest.onload = function(){
 
 
 		// console.log(ourData.prefixes[i]);
-		
-		renderRoute53HTML(ourData);
+		renderHTML(ourData, 'ROUTE53');
+		//renderHTML(ourData);
 		
 	// console.log(ourData);
 	// console.log(ourData.prefixes[0]);
@@ -30,20 +30,20 @@ ourRequest.send();
 
 });
 
-function renderRoute53HTML(data){
+// function renderRoute53HTML(data){
 	
-	var htmlString = "";
-	for (var i=0; i < data.prefixes.length; i++) {
-		if (data.prefixes[i].service === "ROUTE53"){
+// 	var htmlString = "";
+// 	for (var i=0; i < data.prefixes.length; i++) {
+// 		if (data.prefixes[i].service === "ROUTE53"){
 			
-			htmlString += "<p>ROUTE53: " + data.prefixes[i].ip_prefix + " : " + data.prefixes[i].region + "</p>";
+// 			htmlString += "<p>ROUTE53: " + data.prefixes[i].ip_prefix + " : " + data.prefixes[i].region + "</p>";
 			
-		};
-	};
+// 		};
+// 	};
 	
-	//infoContainer.insertAdjacentHTML('afterend', htmlString);
-	infoContainer.innerHTML = htmlString;
-};
+// 	//infoContainer.insertAdjacentHTML('afterend', htmlString);
+// 	infoContainer.innerHTML = htmlString;
+// };
 
 // EC2 
 // var ec2Container = document.getElementById("ec2info");
@@ -54,26 +54,26 @@ btn2.addEventListener("click", function(){
 	ourRequest.onload = function(){
 		var ourData = JSON.parse(ourRequest.responseText);
 
-		renderEC2HTML(ourData);
+		renderHTML(ourData,'EC2');
 		
 	};
 	ourRequest.send();
 });
 
-function renderEC2HTML(data){
+// function renderEC2HTML(data){
 	
-	var htmlString = "";
-	for (var i=0; i < data.prefixes.length; i++) {
-		if (data.prefixes[i].service === "EC2") {
+// 	var htmlString = "";
+// 	for (var i=0; i < data.prefixes.length; i++) {
+// 		if (data.prefixes[i].service === "EC2") {
 			
-			htmlString += "<p>EC2: " + data.prefixes[i].ip_prefix + " : " + data.prefixes[i].region + "</p>";
+// 			htmlString += "<p>EC2: " + data.prefixes[i].ip_prefix + " : " + data.prefixes[i].region + "</p>";
 
-		};
-	};
+// 		};
+// 	};
 	
-	//infoContainer.insertAdjacentHTML('afterend', htmlString);
-	infoContainer.innerHTML = htmlString;
-};
+// 	//infoContainer.insertAdjacentHTML('afterend', htmlString);
+// 	infoContainer.innerHTML = htmlString;
+// };
 
 // CLOUDFRONT
 // var cloudFrontContainer = document.getElementById("cloudfrontinfo");
@@ -84,22 +84,22 @@ btn3.addEventListener("click", function(){
 	ourRequest.onload = function(){
 		var ourData = JSON.parse(ourRequest.responseText);
 		
-		renderCloudFrontHTML(ourData);
+		renderHTML(ourData,'CLOUDFRONT');
 		
 	};
 	ourRequest.send();
 });
 
-function renderCloudFrontHTML(data){
-	var htmlString = "";
-	for (var i=0; i < data.prefixes.length; i++) {
-		if (data.prefixes[i].service === "CLOUDFRONT") {
-			htmlString += "<p>CLOUDFRONT: " + data.prefixes[i].ip_prefix + " : " + data.prefixes[i].region + "</p>";
-		};
-	};
-	//infoContainer.insertAdjacentHTML('afterend', htmlString);
-	infoContainer.innerHTML = htmlString;
-};
+// function renderCloudFrontHTML(data){
+// 	var htmlString = "";
+// 	for (var i=0; i < data.prefixes.length; i++) {
+// 		if (data.prefixes[i].service === "CLOUDFRONT") {
+// 			htmlString += "<p>CLOUDFRONT: " + data.prefixes[i].ip_prefix + " : " + data.prefixes[i].region + "</p>";
+// 		};
+// 	};
+// 	//infoContainer.insertAdjacentHTML('afterend', htmlString);
+// 	infoContainer.innerHTML = htmlString;
+// };
 
 // ROUTE53_HEALTHCHECKS
 // var route53HealthContainer = document.getElementById("route53healthinfo");
@@ -109,24 +109,24 @@ btn4.addEventListener("click", function(){
 	ourRequest.open('GET', 'https://ip-ranges.amazonaws.com/ip-ranges.json');
 	ourRequest.onload = function(){
 		var ourData = JSON.parse(ourRequest.responseText);
-		renderRoute53HealthHTML(ourData);
+		renderHTML(ourData,'ROUTE53_HEALTHCHECKS');
 		
 	};
 	ourRequest.send();
 });
 
-function renderRoute53HealthHTML(data){
-	var htmlString = "";
-	for (var i=0; i < data.prefixes.length; i++) {
-		if (data.prefixes[i].service === "ROUTE53_HEALTHCHECKS") {
+// function renderRoute53HealthHTML(data){
+// 	var htmlString = "";
+// 	for (var i=0; i < data.prefixes.length; i++) {
+// 		if (data.prefixes[i].service === "ROUTE53_HEALTHCHECKS") {
 			
-			htmlString += "<p>ROUTE53 HEALTHCHECKS: " + data.prefixes[i].ip_prefix + " : " + data.prefixes[i].region + "</p>";
+// 			htmlString += "<p>ROUTE53 HEALTHCHECKS: " + data.prefixes[i].ip_prefix + " : " + data.prefixes[i].region + "</p>";
 			
-		};
-	};
-	//infoContainer.insertAdjacentHTML('afterend', htmlString);
-	infoContainer.innerHTML = htmlString;
-};
+// 		};
+// 	};
+// 	//infoContainer.insertAdjacentHTML('afterend', htmlString);
+// 	infoContainer.innerHTML = htmlString;
+// };
 
 // S3
 // var s3Container = document.getElementById("s3info");
@@ -137,25 +137,25 @@ btn5.addEventListener("click", function(){
 	ourRequest.onload = function(){
 		var ourData = JSON.parse(ourRequest.responseText);
 
-		renderS3HTML(ourData);
+		renderHTML(ourData,'S3');
 		
 
 	};
 	ourRequest.send();
 });
 
-function renderS3HTML(data){
-	var htmlString = "";
-	for (var i=0; i < data.prefixes.length; i++) {
-		if (data.prefixes[i].service === "S3") {
+// function renderS3HTML(data){
+// 	var htmlString = "";
+// 	for (var i=0; i < data.prefixes.length; i++) {
+// 		if (data.prefixes[i].service === "S3") {
 			
-			htmlString += "<p>S3: " + data.prefixes[i].ip_prefix + " : " + data.prefixes[i].region + "</p>";
+// 			htmlString += "<p>S3: " + data.prefixes[i].ip_prefix + " : " + data.prefixes[i].region + "</p>";
 			
-		};
-	};
-	//infoContainer.insertAdjacentHTML('afterend', htmlString);
-	infoContainer.innerHTML = htmlString;
-};
+// 		};
+// 	};
+// 	//infoContainer.insertAdjacentHTML('afterend', htmlString);
+// 	infoContainer.innerHTML = htmlString;
+// };
 
 // AMAZON
 // var amazonContainer = document.getElementById("amazoninfo");
@@ -166,23 +166,136 @@ btn6.addEventListener("click", function(){
 	ourRequest.onload = function(){
 		var ourData = JSON.parse(ourRequest.responseText);
 
-		renderAmazonHTML(ourData);
+		renderHTML(ourData,'AMAZON');
 		
 
 	};
 	ourRequest.send();
 });
 
-function renderAmazonHTML(data){
+// function renderAmazonHTML(data){
+// 	var htmlString = "";
+// 	for (var i=0; i < data.prefixes.length; i++) {
+// 		if (data.prefixes[i].service === "AMAZON") {
+			
+// 			htmlString += "<p>AMAZON: " + data.prefixes[i].ip_prefix + " : " + data.prefixes[i].region + "</p>";
+			
+// 		};
+// 	};
+// 	//infoContainer.insertAdjacentHTML('afterend', htmlString);
+// 	infoContainer.innerHTML = htmlString;
+// };
+
+
+
+function renderHTML(data, serviceType){
 	var htmlString = "";
+	console.log(serviceType);
 	for (var i=0; i < data.prefixes.length; i++) {
-		if (data.prefixes[i].service === "AMAZON") {
-			
-			htmlString += "<p>AMAZON: " + data.prefixes[i].ip_prefix + " : " + data.prefixes[i].region + "</p>";
-			
-		};
+		if (data.prefixes[i].service === serviceType){
+			htmlString += "<p>" + serviceType + ": " + data.prefixes[i].ip_prefix + " : " + data.prefixes[i].region + "</p>";
+		}
 	};
-	//infoContainer.insertAdjacentHTML('afterend', htmlString);
+
 	infoContainer.innerHTML = htmlString;
+	
 };
+
+
+/////////////////////////
+// Code for IPv6 Section
+var btn7 = document.getElementById("btn7");
+btn7.addEventListener("click", function(){
+	var ourRequest = new XMLHttpRequest();
+	ourRequest.open('GET', 'https://ip-ranges.amazonaws.com/ip-ranges.json');
+	ourRequest.onload = function(){
+		var ourData = JSON.parse(ourRequest.responseText);
+
+		renderIpv6HTML(ourData,'ROUTE53');
+		alert('There are no available IPv6 Addresses for ROUTE53 at this moment!');
+		
+	};
+	ourRequest.send();
+});
+
+var btn8 = document.getElementById("btn8");
+btn8.addEventListener("click", function(){
+	var ourRequest = new XMLHttpRequest();
+	ourRequest.open('GET', 'https://ip-ranges.amazonaws.com/ip-ranges.json');
+	ourRequest.onload = function(){
+		var ourData = JSON.parse(ourRequest.responseText);
+
+		renderIpv6HTML(ourData,'EC2');
+		
+	};
+	ourRequest.send();
+});
+
+var btn9 = document.getElementById("btn9");
+btn9.addEventListener("click", function(){
+	var ourRequest = new XMLHttpRequest();
+	ourRequest.open('GET', 'https://ip-ranges.amazonaws.com/ip-ranges.json');
+	ourRequest.onload = function(){
+		var ourData = JSON.parse(ourRequest.responseText);
+
+		renderIpv6HTML(ourData,'CLOUDFRONT');
+		alert('There are no available IPv6 Addresses for CLOUDFRONT at this moment!');
+		
+	};
+	ourRequest.send();
+});
+
+var btn10 = document.getElementById("btn10");
+btn10.addEventListener("click", function(){
+	var ourRequest = new XMLHttpRequest();
+	ourRequest.open('GET', 'https://ip-ranges.amazonaws.com/ip-ranges.json');
+	ourRequest.onload = function(){
+		var ourData = JSON.parse(ourRequest.responseText);
+
+		renderIpv6HTML(ourData,'ROUTE53_HEALTHCHECKS');
+		
+	};
+	ourRequest.send();
+});
+
+var btn11 = document.getElementById("btn11");
+btn11.addEventListener("click", function(){
+	var ourRequest = new XMLHttpRequest();
+	ourRequest.open('GET', 'https://ip-ranges.amazonaws.com/ip-ranges.json');
+	ourRequest.onload = function(){
+		var ourData = JSON.parse(ourRequest.responseText);
+
+		renderIpv6HTML(ourData,'S3');
+		
+	};
+	ourRequest.send();
+});
+
+var btn12 = document.getElementById("btn12");
+btn12.addEventListener("click", function(){
+	var ourRequest = new XMLHttpRequest();
+	ourRequest.open('GET', 'https://ip-ranges.amazonaws.com/ip-ranges.json');
+	ourRequest.onload = function(){
+		var ourData = JSON.parse(ourRequest.responseText);
+
+		renderIpv6HTML(ourData,'AMAZON');
+		
+	};
+	ourRequest.send();
+});
+
+function renderIpv6HTML(data, serviceType){
+	var htmlString = "";
+	for (var i=0; i < data.ipv6_prefixes.length; i++) {
+		if (data.ipv6_prefixes[i].service === serviceType){
+			htmlString += "<p>" + serviceType + ": " + data.ipv6_prefixes[i].ipv6_prefix + " : " + data.ipv6_prefixes[i].region + "</p>";
+		}
+	};
+
+	infoContainer.innerHTML = htmlString;
+	
+};
+
+
+
 

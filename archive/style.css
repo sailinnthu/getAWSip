@@ -23,8 +23,8 @@ body {
 }
 
 button {
-  /* background-color: orange; /*#046380*/
-  /*color: black;*/
+  background-color: orange; /*#046380*/
+  color: black;
   border: none;
   padding: 10px 6px;
   font-size: 15px;
@@ -38,17 +38,6 @@ button {
   position: relative;
   top: -10px;
 }
-
-button.ipv4 {
-   background-color: orange; /*#046380*/
-   color: black;
-}
-
-button.ipv6 {
-   background-color: green; /*#046380*/
-   color: white;
-}
-
 
 button:hover {
   background-color: #566573; /*#034F66*/
