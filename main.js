@@ -193,7 +193,7 @@ function renderHTML(data, serviceType){
 	console.log(serviceType);
 	for (var i=0; i < data.prefixes.length; i++) {
 		if (data.prefixes[i].service === serviceType){
-			htmlString += "<p>" + serviceType + ": " + data.prefixes[i].ip_prefix + " : " + data.prefixes[i].region + "</p>";
+			htmlString += "<p>IPv4: " + data.prefixes[i].ip_prefix + " : REGION: " + data.prefixes[i].region + "</p>";
 		}
 	};
 
@@ -288,7 +288,7 @@ function renderIpv6HTML(data, serviceType){
 	var htmlString = "";
 	for (var i=0; i < data.ipv6_prefixes.length; i++) {
 		if (data.ipv6_prefixes[i].service === serviceType){
-			htmlString += "<p>" + serviceType + ": " + data.ipv6_prefixes[i].ipv6_prefix + " : " + data.ipv6_prefixes[i].region + "</p>";
+			htmlString += "<p>IPv6: " + data.ipv6_prefixes[i].ipv6_prefix + " : REGION: " + data.ipv6_prefixes[i].region + "</p>";
 		}
 	};
 
