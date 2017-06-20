@@ -152,3 +152,31 @@ function renderS3HTML(data){
 	infoContainer.insertAdjacentHTML('afterend', htmlString);
 };
 
+// AMAZON
+// var amazonContainer = document.getElementById("amazoninfo");
+var btn6 = document.getElementById("btn6");
+btn6.addEventListener("click", function(){
+	var ourRequest = new XMLHttpRequest();
+	ourRequest.open('GET', 'https://ip-ranges.amazonaws.com/ip-ranges.json');
+	ourRequest.onload = function(){
+		var ourData = JSON.parse(ourRequest.responseText);
+
+		renderAmazonHTML(ourData);
+		
+
+	};
+	ourRequest.send();
+});
+
+function renderAmazonHTML(data){
+	var htmlString = "";
+	for (var i=0; i < data.prefixes.length; i++) {
+		if (data.prefixes[i].service === "AMAZON") {
+			
+			htmlString += "<p>AMAZON: " + data.prefixes[i].ip_prefix + " : " + data.prefixes[i].region + "</p>";
+			
+		};
+	};
+	infoContainer.insertAdjacentHTML('afterend', htmlString);
+};
+
