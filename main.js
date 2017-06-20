@@ -41,7 +41,8 @@ function renderRoute53HTML(data){
 		};
 	};
 	
-	infoContainer.insertAdjacentHTML('afterend', htmlString);
+	//infoContainer.insertAdjacentHTML('afterend', htmlString);
+	infoContainer.innerHTML = htmlString;
 };
 
 // EC2 
@@ -70,7 +71,8 @@ function renderEC2HTML(data){
 		};
 	};
 	
-	infoContainer.insertAdjacentHTML('afterend', htmlString);
+	//infoContainer.insertAdjacentHTML('afterend', htmlString);
+	infoContainer.innerHTML = htmlString;
 };
 
 // CLOUDFRONT
@@ -95,7 +97,8 @@ function renderCloudFrontHTML(data){
 			htmlString += "<p>CLOUDFRONT: " + data.prefixes[i].ip_prefix + " : " + data.prefixes[i].region + "</p>";
 		};
 	};
-	infoContainer.insertAdjacentHTML('afterend', htmlString);
+	//infoContainer.insertAdjacentHTML('afterend', htmlString);
+	infoContainer.innerHTML = htmlString;
 };
 
 // ROUTE53_HEALTHCHECKS
@@ -121,7 +124,8 @@ function renderRoute53HealthHTML(data){
 			
 		};
 	};
-	infoContainer.insertAdjacentHTML('afterend', htmlString);
+	//infoContainer.insertAdjacentHTML('afterend', htmlString);
+	infoContainer.innerHTML = htmlString;
 };
 
 // S3
@@ -149,7 +153,8 @@ function renderS3HTML(data){
 			
 		};
 	};
-	infoContainer.insertAdjacentHTML('afterend', htmlString);
+	//infoContainer.insertAdjacentHTML('afterend', htmlString);
+	infoContainer.innerHTML = htmlString;
 };
 
 // AMAZON
@@ -177,6 +182,7 @@ function renderAmazonHTML(data){
 			
 		};
 	};
-	infoContainer.insertAdjacentHTML('afterend', htmlString);
+	//infoContainer.insertAdjacentHTML('afterend', htmlString);
+	infoContainer.innerHTML = htmlString;
 };
 
