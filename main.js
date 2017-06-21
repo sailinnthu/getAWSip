@@ -190,11 +190,17 @@ btn6.addEventListener("click", function(){
 
 function renderHTML(data, serviceType){
 	var htmlString = "";
+	var hasData = false;
 	console.log(serviceType);
 	for (var i=0; i < data.prefixes.length; i++) {
 		if (data.prefixes[i].service === serviceType){
+			hasData = true;
 			htmlString += "<p>IPv4: " + data.prefixes[i].ip_prefix + " : REGION: " + data.prefixes[i].region + "</p>";
-		}
+		};
+	};
+
+	if (!hasData) {
+		alert('There are no available IPv4 Addresses for ' + serviceType + ' at this moment!');
 	};
 
 	infoContainer.innerHTML = htmlString;
@@ -212,7 +218,7 @@ btn7.addEventListener("click", function(){
 		var ourData = JSON.parse(ourRequest.responseText);
 
 		renderIpv6HTML(ourData,'ROUTE53');
-		alert('There are no available IPv6 Addresses for ROUTE53 at this moment!');
+		
 		
 	};
 	ourRequest.send();
@@ -239,7 +245,7 @@ btn9.addEventListener("click", function(){
 		var ourData = JSON.parse(ourRequest.responseText);
 
 		renderIpv6HTML(ourData,'CLOUDFRONT');
-		alert('There are no available IPv6 Addresses for CLOUDFRONT at this moment!');
+		
 		
 	};
 	ourRequest.send();
@@ -286,10 +292,16 @@ btn12.addEventListener("click", function(){
 
 function renderIpv6HTML(data, serviceType){
 	var htmlString = "";
+	var hasData = false;
 	for (var i=0; i < data.ipv6_prefixes.length; i++) {
 		if (data.ipv6_prefixes[i].service === serviceType){
+			hasData = true;
 			htmlString += "<p>IPv6: " + data.ipv6_prefixes[i].ipv6_prefix + " : REGION: " + data.ipv6_prefixes[i].region + "</p>";
-		}
+		};
+	};
+
+	if (!hasData) {
+		alert('There are no available IPv6 Addresses for ' + serviceType + ' at this moment!');
 	};
 
 	infoContainer.innerHTML = htmlString;
