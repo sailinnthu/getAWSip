@@ -1,3 +1,4 @@
+var serviceHeadLine = document.getElementById("serviceHeadLine");
 // ROUTE53
 var infoContainer = document.getElementById("info");
 
@@ -196,11 +197,13 @@ function renderHTML(data, serviceType){
 		if (data.prefixes[i].service === serviceType){
 			hasData = true;
 			htmlString += "<p>IPv4: " + data.prefixes[i].ip_prefix + " : REGION: " + data.prefixes[i].region + "</p>";
+			serviceHeadLine.innerHTML = "IPv4 for : " + serviceType;
 		};
 	};
 
 	if (!hasData) {
 		alert('There are no available IPv4 Addresses for ' + serviceType + ' at this moment!');
+		serviceHeadLine.innerHTML = "Click Service Type";
 	};
 
 	infoContainer.innerHTML = htmlString;
@@ -293,17 +296,19 @@ btn12.addEventListener("click", function(){
 function renderIpv6HTML(data, serviceType){
 	var htmlString = "";
 	var hasData = false;
+	var header = "Click Service Type";
 	for (var i=0; i < data.ipv6_prefixes.length; i++) {
 		if (data.ipv6_prefixes[i].service === serviceType){
 			hasData = true;
 			htmlString += "<p>IPv6: " + data.ipv6_prefixes[i].ipv6_prefix + " : REGION: " + data.ipv6_prefixes[i].region + "</p>";
+			header = "IPv6 for : " + serviceType;
 		};
 	};
 
 	if (!hasData) {
 		alert('There are no available IPv6 Addresses for ' + serviceType + ' at this moment!');
 	};
-
+	serviceHeadLine.innerHTML = header;
 	infoContainer.innerHTML = htmlString;
 	
 };
